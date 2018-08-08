@@ -1,4 +1,5 @@
 import { CloudstackUiPage } from './app.po';
+import {browser} from 'protractor';
 
 describe('cloudstack-ui App', () => {
   let page: CloudstackUiPage;
@@ -7,8 +8,9 @@ describe('cloudstack-ui App', () => {
     page = new CloudstackUiPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display logo', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+    browser.waitForAngular();
+    expect(page.getLogo().isPresent()).toBeTruthy();
   });
 });

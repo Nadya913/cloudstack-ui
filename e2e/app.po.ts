@@ -2,10 +2,10 @@ import { browser, by, element } from 'protractor';
 
 export class CloudstackUiPage {
   navigateTo() {
-    return browser.get('/');
+    return browser.get('/bwsw/master/login');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getLogo() {
+    return element(by.css('.logo'));
   }
 }
