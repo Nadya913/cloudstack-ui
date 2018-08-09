@@ -12,7 +12,7 @@ exports.config = {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://cs-ui-ci.bitworks.software:8080',
+  baseUrl: 'http://localhost:49152',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
