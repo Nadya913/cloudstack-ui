@@ -37,9 +37,10 @@ before_install:
 before_script:
  - docker pull cloudstack/simulator
  - docker run --name cloudstack-simulator-e2e -d --rm -p 4201:8080 cloudstack/simulator
- - sleep 50
+ - sleep 120
  - docker exec -ti cloudstack-simulator-e2e python /root/tools/marvin/marvin/deployDataCenter.py -i /root/setup/dev/basic.cfg
- - docker run --rm -v $(pwd):/workspace -e "CLIENT_ENDPOINT=http://127.0.0.1:4201/client" -w /workspace markadams/chromium-xvfb-js /bin/bash -ce "npm run e2e --serve false"
+ - echo $CONFIG > ./workspace/proxy-conf.js
+ - docker run --rm -v $(pwd):/workspace -e "CLIENT_ENDPOINT=http://127.0.0.1:4201/client" -w /workspace markadams/chromium-xvfb-js /bin/bash -ce "npm run e2e"
  - docker stop cloudstack-simulator-e2e
 
 script:
