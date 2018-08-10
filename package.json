@@ -16,7 +16,8 @@
     "e2e": "ng e2e",
     "e2e-no-update": "ng e2e --webdriver-update false",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "ci": "npm run lint && npm run test && npm run e2e"
+    "webdriver-clean": "./node_modules/.bin/webdriver-manager clean",
+    "webdriver-2.35": "./node_modules/.bin/webdriver-manager update --versions.chrome 2.35"
 
   },
   "private": true,

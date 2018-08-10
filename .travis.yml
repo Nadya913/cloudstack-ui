@@ -30,10 +30,8 @@ install:
 
 before_script:
  - echo $PROXY_CONF | base64 -d > ./proxy-conf.js
- - ./node_modules/.bin/webdriver-manager clean
- - ./node_modules/.bin/webdriver-manager update --versions.chrome 2.35
 
 script:
- - docker run --rm -v $(pwd):/workspace -w /workspace m7ov/node8-chrome:0.1 /bin/bash -ce "npm run e2e-no-update"
+ - docker run --rm -v $(pwd):/workspace -w /workspace m7ov/node8-chrome:0.1 /bin/bash -ce "npm run webdriver-clean && npm run webdriver-2.35 && npm run e2e-no-update"
  - docker stop cloudstack-simulator-e2e
 
